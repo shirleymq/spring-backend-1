@@ -4,7 +4,10 @@
 
 package com.sales.market.model;
 
-public class SubCategory {
+import javax.persistence.Entity;
+
+@Entity
+public class SubCategory extends ModelBase {
     private String name;
     private String code;
 
