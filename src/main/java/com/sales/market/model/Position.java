@@ -10,6 +10,9 @@ import javax.persistence.Id;
 /*Cajero, Acomodador, Almacenero*/
 @Entity
 public class Position {
+
+    /*este es un pk en la bd*/
+
     @Id
     private Long id;
     private String name;
