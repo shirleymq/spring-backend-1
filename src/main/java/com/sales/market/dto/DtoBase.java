@@ -5,10 +5,11 @@
 package com.sales.market.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.sales.market.model.ModelBase;
 
 import java.util.Date;
 
-public class DtoBase {
+public class DtoBase<E extends ModelBase> {
 
     private Long id;
 
