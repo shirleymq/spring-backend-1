@@ -18,6 +18,16 @@ public class ${NAME} extends ModelBase<${NAME}Dto> {
 
 ######### Template para dto #########
 
+#parse("File Header.java")
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+
+import com.sales.market.model.${NAME};
+import org.modelmapper.ModelMapper;
+
+public class ${NAME}Dto extends DtoBase<${NAME}> {
+
+}
+
 ######### Template para repositorio #########
 
 /**
