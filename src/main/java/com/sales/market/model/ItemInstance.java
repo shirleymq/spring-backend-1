@@ -5,7 +5,6 @@
 package com.sales.market.model;
 
 import com.sales.market.dto.ItemInstanceDto;
-import org.modelmapper.ModelMapper;
 
 import javax.persistence.Entity;
 import javax.persistence.OneToOne;
@@ -56,10 +55,10 @@ public class ItemInstance extends ModelBase<ItemInstanceDto> {
         this.featured = featured;
     }
 
-    @Override
+    /*@Override
     public ModelBase toDomain(ItemInstanceDto element, ModelMapper mapper) {
         super.toDomain(element, mapper);
         setItem((Item) new Item().toDomain(element.getItemDto(), mapper));
         return this;
-    }
+    }*/
 }
