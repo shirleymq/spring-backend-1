@@ -6,18 +6,15 @@ package com.sales.market.model;
 
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import java.math.BigDecimal;
 
 @Entity
-public class AccountAux /*extends ModelBase*/ {
+public class AccountAux extends ModelBase {
 
     private BigDecimal totalDebit;
     private BigDecimal totalCredit;
     private BigDecimal balance;
-    @Id
+    /*@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
@@ -27,7 +24,7 @@ public class AccountAux /*extends ModelBase*/ {
 
     public void setId(Long id) {
         this.id = id;
-    }
+    }*/
 
     public BigDecimal getTotalDebit() {
         return totalDebit;
