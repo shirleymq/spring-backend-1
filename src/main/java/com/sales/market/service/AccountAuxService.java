@@ -6,12 +6,16 @@ package com.sales.market.service;
 
 import com.sales.market.model.AccountAux;
 import com.sales.market.repository.AccountAuxWithDelayRepositoryImpl;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 
 @Service
 public class AccountAuxService {
+    @Value("${AccountAuxService.secret}")
+    private String secret;
+
     private final AccountAuxWithDelayRepositoryImpl accountAuxWithDelayRepository;
 
     public AccountAuxService(AccountAuxWithDelayRepositoryImpl accountAuxWithDelayRepository) {
