@@ -21,6 +21,14 @@ public class BuyController extends GenericController<Buy, BuyDto> {
         this.service = service;
     }
 
+    /*
+    Especificar en el hijo cuando el generico no tiene especificado los tipos de MApping
+    @Override
+    @DeleteMapping(value = "/{id}")
+    protected void deleteElement(Long id) {
+        super.deleteElement(id);
+    }*/
+
     @Override
     protected GenericService getService() {
         return service;
