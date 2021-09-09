@@ -51,4 +51,26 @@ public class BasicConfigurationIntegrationTest {
         assertEquals(HttpStatus.UNAUTHORIZED, response.getStatusCode());
     }
 
+    @Test
+    public void whenUserWithWrongRole_thenUnauthorizedPage() throws MalformedURLException {
+
+        restTemplate = new TestRestTemplate("user", "user");
+        base = new URL("http://localhost:" + port + "/buys/admin");
+        ResponseEntity<String> response =
+                restTemplate.getForEntity(base.toString(), String.class);
+
+        assertEquals(HttpStatus.FORBIDDEN, response.getStatusCode());
+    }
+
+    @Test
+    public void whenUserWithRightRole_ThenSuccess() throws MalformedURLException {
+
+        restTemplate = new TestRestTemplate("admin", "admin");
+        base = new URL("http://localhost:" + port + "/buys/admin");
+        ResponseEntity<String> response =
+                restTemplate.getForEntity(base.toString(), String.class);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+    }
+
 }
