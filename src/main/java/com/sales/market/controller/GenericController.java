@@ -2,7 +2,7 @@
  * @author: Edson A. Terceros T.
  */
 
-package controller;
+package com.sales.market.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sales.market.dto.DtoBase;

@@ -2,13 +2,12 @@
  * @author: Edson A. Terceros T.
  */
 
-package com.sales.market;
+package com.sales.market.controller;
 
 import com.sales.market.dto.BuyDto;
 import com.sales.market.model.Buy;
 import com.sales.market.service.BuyService;
 import com.sales.market.service.GenericService;
-import controller.GenericController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
