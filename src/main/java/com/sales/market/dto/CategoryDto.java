@@ -1,20 +1,10 @@
-/**
- * @author: Edson A. Terceros T.
- */
+package com.sales.market.dto;
 
-package com.sales.market.model;
+import com.sales.market.model.Category;
 
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-
-@Entity
-public class SubCategory extends ModelBase {
+public class CategoryDto extends DtoBase<Category> {
     private String name;
     private String code;
-    @ManyToOne
-    private Category category;
-
-    private Long cateId;  /// DTO
 
     public String getName() {
         return name;
