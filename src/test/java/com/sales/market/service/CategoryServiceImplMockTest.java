@@ -31,8 +31,11 @@ public class CategoryServiceImplMockTest {
 
     @Test
     public void testFindById() {
-        Category result = categoryServiceImpl.findById(Long.valueOf(1));
-        Assert.assertEquals(result, new Category());
+        Category categoryI = new Category();
+        categoryI.setId(-1L);
+        when(repository.findById(-1L)).thenReturn(java.util.Optional.of(categoryI));
+        Category result = categoryServiceImpl.findById(-1L);
+        Assert.assertEquals(result, categoryI);
     }
 
     @Test
