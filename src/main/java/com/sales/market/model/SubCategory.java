@@ -4,11 +4,14 @@
 
 package com.sales.market.model;
 
+import com.sales.market.dto.SubCategoryDto;
+import org.modelmapper.ModelMapper;
+
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class SubCategory extends ModelBase {
+public class SubCategory extends ModelBase<SubCategoryDto> {
     private String name;
     private String code;
     @ManyToOne
@@ -30,5 +33,30 @@ public class SubCategory extends ModelBase {
 
     public void setCode(String code) {
         this.code = code;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+    }
+
+    public Long getCateId() {
+        return cateId;
+    }
+
+    public void setCateId(Long cateId) {
+        this.cateId = cateId;
+    }
+
+    @Override
+    public SubCategory toDomain(SubCategoryDto subCategoryDto, ModelMapper mapper) {
+        SubCategory subCategory = super.toDomain(subCategoryDto, mapper);
+        Category category = new Category();
+        category.setId(subCategoryDto.getCategoryId());
+        subCategory.setCategory(category);
+        return subCategory;
     }
 }
