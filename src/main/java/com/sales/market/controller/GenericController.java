@@ -74,8 +74,9 @@ public abstract class GenericController<E extends ModelBase, D extends DtoBase<E
     }
 
     @PostMapping
-    protected D save(@RequestBody D element) {
-        return toDto((E) getService().save(toModel(element)));
+    protected D save(@RequestBody D element,
+            @RequestParam(name = "bunchSave", required = false, defaultValue = "false") Boolean bunchSave) {
+        return toDto((E) (bunchSave ? getService().bunchSave(toModel(element)) : getService().save(toModel(element))));
     }
 
     @PutMapping

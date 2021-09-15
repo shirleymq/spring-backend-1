@@ -21,6 +21,8 @@ public interface GenericService<T extends ModelBase> {
 
     T save(T model);
 
+    T bunchSave(T model);
+
     T saveAndFlush(T model);
 
     T patch(DtoBase dto, T model);

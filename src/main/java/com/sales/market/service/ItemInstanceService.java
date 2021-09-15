@@ -7,5 +7,4 @@ package com.sales.market.service;
 import com.sales.market.model.ItemInstance;
 
 public interface ItemInstanceService extends GenericService<ItemInstance> {
-    ItemInstance bunchSave(ItemInstance itemInstance, boolean bunchSave);
 }

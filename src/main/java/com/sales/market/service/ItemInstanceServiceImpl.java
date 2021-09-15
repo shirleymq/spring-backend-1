@@ -4,7 +4,6 @@
 
 package com.sales.market.service;
 
-import com.sales.market.model.Item;
 import com.sales.market.model.ItemInstance;
 import com.sales.market.repository.GenericRepository;
 import com.sales.market.repository.ItemInstanceRepository;
@@ -26,11 +25,12 @@ public class ItemInstanceServiceImpl extends GenericServiceImpl<ItemInstance> im
     }
 
     @Override
-    public ItemInstance bunchSave(ItemInstance itemInstance, boolean bunchSave) {
+    public ItemInstance bunchSave(ItemInstance itemInstance) {
+        // here make all objects save other than this resource
         if (itemInstance.getItem() != null) {
-            Item item = itemService.save(itemInstance.getItem());
-            itemInstance.setItem(item);
+            // todo habria que distinguir si permitiremos guardar y  actualizar o ambos mitando el campo id
+            itemService.save(itemInstance.getItem());
         }
-        return save(itemInstance);
+        return super.bunchSave(itemInstance);
     }
 }

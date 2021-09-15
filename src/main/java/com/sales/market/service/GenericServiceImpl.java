@@ -64,6 +64,11 @@ public abstract class GenericServiceImpl<T extends ModelBase> implements Generic
     }
 
     @Override
+    public T bunchSave(T model) {
+        return save(model);
+    }
+
+    @Override
     public T saveAndFlush(T model) {
         validateSave(model);
         T t = getRepository().saveAndFlush(model);
