@@ -10,5 +10,5 @@ import java.util.Set;
 
 public interface SubCategoryService extends GenericService<SubCategory> {
 
-    Set<SubCategory> findAllById(Long id);
+    Set<SubCategory> findAllByCategoryId(Long id);
 }
