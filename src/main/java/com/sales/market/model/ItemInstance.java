@@ -23,6 +23,8 @@ public class ItemInstance extends ModelBase<ItemInstanceDto> {
     // private ItemInstanceState itemInstanceState;
     // todo agregar totalCost
 
+    private ItemInstanceStatus itemInstanceStatus;
+
     public Item getItem() {
         return item;
     }
