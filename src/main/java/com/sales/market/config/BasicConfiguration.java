@@ -48,8 +48,11 @@ public class BasicConfiguration extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.GET, "/actuator/health").permitAll()
+                .and().authorizeRequests().antMatchers("/h2-console/**").permitAll()
+                .and().authorizeRequests().antMatchers("/console/**").permitAll()
                 .anyRequest()
                 .authenticated()
+                .and().headers().frameOptions().disable()
                 .and()
                 .httpBasic();
     }
