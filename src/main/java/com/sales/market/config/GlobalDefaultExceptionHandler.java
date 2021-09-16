@@ -54,6 +54,7 @@ public class GlobalDefaultExceptionHandler {
 
     @ExceptionHandler(ObjectOptimisticLockingFailureException.class)
     public final ResponseEntity<String> handleObjectOptimisticLockingFailureExceptions(Exception e) {
+        logger.error("error de concurrencia ", e);
         return new ResponseEntity<>("It seems that another user could have modified the values before you, please try" +
                 " again refreshing the browser", HttpStatus.CONFLICT);
     }
