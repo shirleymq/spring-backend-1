@@ -1,6 +1,5 @@
 package com.sales.market.model.purchases;
 
-import com.sales.market.model.Employee;
 import com.sales.market.model.ModelBase;
 
 import javax.persistence.*;
@@ -18,12 +17,10 @@ public class PurchaseOrder extends ModelBase {
     private Date date;
 
     @Enumerated(EnumType.STRING)
-    private PurchaseOrderStateEOS state;
+    private PurchaseOrderState state;
 
     @Enumerated(EnumType.STRING)
     private PurchaseOrderReceivedType receivedType;
-
-    private String warehouseCode;
 
     private String providerCode;
 
@@ -34,29 +31,13 @@ public class PurchaseOrder extends ModelBase {
     private Date receptionDate;
 
     @Column(precision = 16, scale = 2)
-    private BigDecimal subTotalAmount = BigDecimal.ZERO;
-
-    @Column(precision = 7, scale = 4)
-    private BigDecimal discountPercent = BigDecimal.ZERO;
-
-    @Column(precision = 16, scale = 2)
-    private BigDecimal discountAmount = BigDecimal.ZERO;
-
-    @Column(precision = 16, scale = 2)
     private BigDecimal totalAmount = BigDecimal.ZERO;
-
-    @Column(nullable = true, length = 150)
-    private String invoiceNumber;
 
     @Transient
     private PurchaseOrderDetail defaultDetail = new PurchaseOrderDetail();
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     private Provider provider;
-
-    @ManyToOne
-    private Employee responsible;
-
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "purchaseOrder", cascade = CascadeType.ALL)
     @OrderBy("detailNumber asc")

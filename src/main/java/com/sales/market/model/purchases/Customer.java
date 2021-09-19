@@ -12,7 +12,6 @@ import java.util.List;
 @Entity
 public class Customer extends ModelBase {
 
-    @Column(name = "nocliente", length = 100)
     private String number;
 
     @Temporal(value = TemporalType.TIMESTAMP)
