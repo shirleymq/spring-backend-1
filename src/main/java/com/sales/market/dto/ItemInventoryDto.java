@@ -1,42 +1,23 @@
-/**
- * @author: Edson A. Terceros T.
- */
+package com.sales.market.dto;
 
-package com.sales.market.model;
+import com.sales.market.model.Item;
+import com.sales.market.model.ItemInventory;
+import org.modelmapper.ModelMapper;
 
-import com.sales.market.dto.ItemInventoryDto;
-
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import java.math.BigDecimal;
-import java.util.List;
 
-@Entity
-public class ItemInventory extends ModelBase<ItemInventoryDto> {
-    @OneToOne
-    private Item item;
+public class ItemInventoryDto extends DtoBase<ItemInventory> {
+    private ItemDto item;
     private BigDecimal stockQuantity;
     private BigDecimal lowerBoundThreshold;
     private BigDecimal upperBoundThreshold;
     private BigDecimal totalPrice;
-    @OneToMany(mappedBy = "itemInventory", fetch = FetchType.EAGER)
-    private List<ItemInventoryEntry> itemInventoryEntries;;
 
-    public List<ItemInventoryEntry> getItemInventoryEntries() {
-        return itemInventoryEntries;
-    }
-
-    public void setItemInventoryEntries(List<ItemInventoryEntry> itemInventoryEntries) {
-        this.itemInventoryEntries = itemInventoryEntries;
-    }
-
-    public Item getItem() {
+    public ItemDto getItem() {
         return item;
     }
 
-    public void setItem(Item item) {
+    public void setItem(ItemDto item) {
         this.item = item;
     }
 

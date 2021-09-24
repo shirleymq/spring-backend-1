@@ -1,16 +1,34 @@
 package com.sales.market.dto;
 
 import com.sales.market.model.ItemInstance;
+import com.sales.market.model.ItemInstanceStatus;
+
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 public class ItemInstanceDto extends DtoBase<ItemInstance> {
     private ItemDto item;
     private String identifier;// sku
-
     private Boolean featured = Boolean.FALSE;
+    private BigDecimal price;
+    private ItemInstanceStatus itemInstanceStatus;
+    private LocalDate expirationDate;
 
-    // todo generalmente se usa BigDecimal
-    private Double price;
+    public ItemInstanceStatus getItemInstanceStatus() {
+        return itemInstanceStatus;
+    }
 
+    public void setItemInstanceStatus(ItemInstanceStatus itemInstanceStatus) {
+        this.itemInstanceStatus = itemInstanceStatus;
+    }
+
+    public LocalDate getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(LocalDate expirationDate) {
+        this.expirationDate = expirationDate;
+    }
 
     public ItemDto getItem() {
         return item;
@@ -36,11 +54,11 @@ public class ItemInstanceDto extends DtoBase<ItemInstance> {
         this.featured = featured;
     }
 
-    public Double getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 }
